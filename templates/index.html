@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ask Your Question</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .mb-3 {
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 20px;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        body {
+            background-color: #f0f0f0;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Ask Your Question</h1>
+        <form method="POST" action="/answer">
+            <div class="mb-3">
+                <label for="question" class="form-label">Question:</label>
+                <textarea class="form-control" id="question" name="question" rows="3">
+                    {{question}}
+                </textarea>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+	<div class="container">
+
+	<h1>Answer from documents</h1>
+	<p>{{ answer }}</p>
+
+    <h1>Answer from URL</h1>
+	<p>{{ urlanswer }}</p>
+
+    <h1>Suggessions</h1>
+	<p>{{ compare }}</p>
+
+	<p>References</p>
+	<ul>
+		{% for reference in references %}
+		<li>{{ reference }}</li>
+		{% endfor %}
+	</ul>
+</div>
+</body>
+</html>
